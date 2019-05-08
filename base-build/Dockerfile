@@ -23,5 +23,7 @@ RUN apt-get update \
   && mv skaffold /usr/local/bin \
 # Install Helm
   && curl -L https://git.io/get_helm.sh | bash -s -- --version $HELM_VERSION \
+  && helm init -c \
+  && helm plugin install https://github.com/chartmuseum/helm-push \
 # Clean
   && rm -rf /var/lib/apt/lists/*
