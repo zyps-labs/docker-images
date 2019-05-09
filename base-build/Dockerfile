@@ -1,5 +1,7 @@
 FROM debian:stretch-slim
 
+ENV LC_ALL C.UTF-8
+
 ENV SKAFFOLD_VERSION 0.28.0
 ENV HELM_VERSION v2.13.1
 
