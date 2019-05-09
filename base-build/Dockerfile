@@ -7,7 +7,7 @@ ENV HELM_VERSION v2.13.1
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-       git python3-pip wget curl build-essential apt-transport-https ca-certificates gnupg2 software-properties-common \
+       git python3-pip wget curl build-essential apt-transport-https ca-certificates gnupg2 software-properties-common jq \
 # Prepare Kubectl
   && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
   && add-apt-repository "deb https://apt.kubernetes.io/ kubernetes-xenial main" \
@@ -19,6 +19,8 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends kubectl docker-ce-cli \
 # Install bump2version
   && pip3 install bump2version \
+# Install yq https://github.com/kislyuk/yq
+  && pip3 install yq \
 # Install Skaffold
   && curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v$SKAFFOLD_VERSION/skaffold-linux-amd64 \
   && chmod +x skaffold \
