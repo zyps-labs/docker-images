@@ -20,6 +20,7 @@ RUN apt-get update \
 # Install bump2version
   && pip3 install bump2version \
 # Install yq https://github.com/kislyuk/yq
+  && pip3 install setuptools \
   && pip3 install yq \
 # Install Skaffold
   && curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v$SKAFFOLD_VERSION/skaffold-linux-amd64 \
