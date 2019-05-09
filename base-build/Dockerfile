@@ -20,7 +20,7 @@ RUN apt-get update \
 # Install bump2version
   && pip3 install bump2version \
 # Install yq https://github.com/kislyuk/yq
-  && pip3 install setuptools \
+  && pip3 install setuptools wheel \
   && pip3 install yq \
 # Install Skaffold
   && curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v$SKAFFOLD_VERSION/skaffold-linux-amd64 \
@@ -28,7 +28,8 @@ RUN apt-get update \
   && mv skaffold /usr/local/bin \
 # Install Helm
   && curl -L https://git.io/get_helm.sh | bash -s -- --version $HELM_VERSION \
-  && helm init -c \
-  && helm plugin install https://github.com/chartmuseum/helm-push \
 # Clean
   && rm -rf /var/lib/apt/lists/*
+
+RUN adduser jenkins \
+  && su - jenkins -c "helm init -c && helm plugin install https://github.com/chartmuseum/helm-push"
