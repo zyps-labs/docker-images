@@ -10,3 +10,5 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain $RUST_VERSI
   && apt-get install -y --no-install-recommends capnproto \
 # Clean
   && rm -rf /var/lib/apt/lists/*
+
+ENV PATH "/root/.cargo/bin:${PATH}"
