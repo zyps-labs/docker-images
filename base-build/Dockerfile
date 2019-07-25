@@ -3,7 +3,7 @@ FROM debian:stretch-slim
 ENV LC_ALL C.UTF-8
 
 ENV SKAFFOLD_VERSION 0.31.0
-ENV HELM_VERSION v2.14.1
+ENV HELM_VERSION v2.14.2
 ENV HELM_HOME /root/.helm
 
 RUN apt-get update \
