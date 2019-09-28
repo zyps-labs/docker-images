@@ -3,7 +3,7 @@ FROM zyps/base-build:latest
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.37.0
+    RUST_VERSION=1.38.0
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain $RUST_VERSION \
 # Init cargo packages index for faster builds
