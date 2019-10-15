@@ -10,7 +10,7 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-tool
   && . ~/.profile \
   && cargo search serde \
   && apt-get update \
-  && apt-get install -y --no-install-recommends capnproto pkg-config libssl-dev \
+  && apt-get install -y --no-install-recommends capnproto pkg-config libssl-dev libpq-dev \
   && chmod -R a+w $RUSTUP_HOME $CARGO_HOME \
 # Clean
   && rm -rf /var/lib/apt/lists/*
